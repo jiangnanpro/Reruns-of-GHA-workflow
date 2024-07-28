@@ -91,8 +91,7 @@ def analyze_wasted_time(wasted_time):
 def find_next_run(index, workflow_list, rerun_list, hash_dict):
     
     '''
-    recursive function. -> identify if the next workflow run is still with in the rerun set, if not, return the current rerun set as a list of re-run workflows 'rerun_list'.
-
+    recursive function. -> identify if the next workflow run is still with in the rerun set, if not, return the current rerun set as a list of re-run workflows 'rerun_list'
     '''
     
     rerun_list.append(workflow_list[index])
@@ -123,10 +122,8 @@ def find_next_run(index, workflow_list, rerun_list, hash_dict):
 
 def find_reruns(workflow_run_dict, hash_dict):
     '''
-    # This function returns all the rerun sets for both workflow and job reruns for a specific working branch within a repo.
-
+    returns all the rerun sets for both workflow and job reruns for a specific working branch within a repo
     '''
-
     
     rerun_workflow = []
     rerun_job = []
@@ -178,7 +175,7 @@ def find_reruns(workflow_run_dict, hash_dict):
 def build_rerun_df(repos, rerun_index, rerun_type, all_rerun):
     
     '''
-    build the dataframe of reruns for both workflow and job
+    build the dataframe for both workflow and job reruns
     '''
 
     print(f'{len(rerun_index)} workflow files have {rerun_type} reruns.')

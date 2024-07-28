@@ -3,6 +3,10 @@ import matplotlib.pyplot as plt
 
 
 def build_flakiness_data(data_records, rerun_type):
+    
+    '''
+    extract flakiness sets from workflow data records
+    '''
 
     flakiness_data = []
 
@@ -61,6 +65,10 @@ def build_flakiness_data(data_records, rerun_type):
     
 def flakiness_df_generator(flakiness_data):
     
+    '''
+    generate flakiness dataframe
+    '''
+    
     list_flakiness = []
     
     for repo_n,flaky in enumerate(flakiness_data):
@@ -83,6 +91,11 @@ def flakiness_df_generator(flakiness_data):
 
 
 def flakiness_sets_printer(df_flakiness, rerun_type, gross_number=5):
+    
+    '''
+    print the workflow flakiness sets ordered by the number of failed reruns before success.
+
+    '''
     
     most_frequent = df_flakiness.sort_values(by='#_failures_before_succeed', ascending=False).values.tolist()[:]
     dict_repo = {}
@@ -113,6 +126,10 @@ def flakiness_sets_printer(df_flakiness, rerun_type, gross_number=5):
 
 
 def show_frequency(flakiness_data):
+    
+    '''
+    visualize the number of failed runs before success among flakiness sets
+    '''
     
     len_hash = {2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0,10:0}
 

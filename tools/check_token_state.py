@@ -4,6 +4,7 @@ import time
 # GitHub API endpoint for getting workflow runs
 workflow_runs_url = "https://api.github.com/repos/{owner}/{repo}/actions/runs"
 
+# insert Github tokens here.
 token1 = ""
 token2 = ""
 
