@@ -8,3 +8,5 @@ This repository contains the code and the dataset of our paper "On the Reruns of
 - **data** folder contains our dataset, which consists of the raw data of the repositories extracted from github, and the dataframes generated during our study.
 - **plots** folder contains plots generated during the qualitative analysis conducted in our study.
 - **tools** folder contains our self-implemented Python tools used in the study.
+
+The Excel file "Flakiness in workflow&job reruns.xlsx" demonstrates the 100 workflow and job reruns that we manually analyzed in Section 5, "Flakiness of Workflow Executions." Note that by default, only three months of workflow run logs can be tracked on GitHub. As a result, most of the logs within the links shown in the file are now untraceable. However, similar symptoms can persist in the workflows' later executions.

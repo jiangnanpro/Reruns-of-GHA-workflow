@@ -42,6 +42,7 @@ def build_flakiness_data(data_records, rerun_type):
                         dict_record['event'] = record['event'][set_n]
 
                     dict_record['repo'] = record['repo path']
+                    dict_record['workflow'] = record['workflow file path']
                     dict_record['branch'] = record['branch']
                     dict_record['default'] = record['default']
                     
@@ -77,6 +78,7 @@ def flakiness_df_generator(flakiness_data):
 
             dict_flakiness['#_failures_before_succeed'] = len(flaky_set)-1
             dict_flakiness['repo_url'] = 'https://github.com/' + flaky_set[0]['repo']+ '/actions/runs/' 
+            dict_flakiness['workflow'] = flaky_set[0]['workflow']
             dict_flakiness['branch'] = flaky_set[0]['branch']
             dict_flakiness['default'] = flaky_set[0]['default']
             dict_flakiness['event'] = flaky_set[0]['event']
@@ -106,15 +108,16 @@ def flakiness_sets_printer(df_flakiness, rerun_type, gross_number=5):
             
             count += 1
             dict_repo[r_set[1]] = 1
-            f_failure = r_set[1] + str(r_set[5][0])
+            f_failure = r_set[1] + str(r_set[6][0])
             
             if rerun_type == 'wf':
-                f_success = r_set[1] + str(r_set[5][-1])
+                f_success = r_set[1] + str(r_set[6][-1])
 
             print(f'current number: {count}')
             print(f'# reruns: {r_set[0]}')
-            print(f'event: {r_set[4]}')
-            print(f'branch: {r_set[2]}')
+            print(f'workflow: {r_set[2]}')
+            print(f'event: {r_set[5]}')
+            print(f'branch: {r_set[3]}')
             print(f_failure)
             if rerun_type == 'wf':
                 print(f_success)

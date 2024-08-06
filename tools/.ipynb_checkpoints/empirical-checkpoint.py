@@ -179,9 +179,7 @@ def build_rerun_df(repos, rerun_index, rerun_type, all_rerun):
     '''
     build the dataframe for both workflow and job reruns
     '''
-
-    print(f'{len(rerun_index)} workflow files have {rerun_type} reruns.')
-
+    
     all_r_list = []
     all_r_id_list = []
     r_path_list = []
@@ -314,12 +312,7 @@ def build_rerun_df(repos, rerun_index, rerun_type, all_rerun):
         
         df_rerun['content'] = all_content_list
         df_rerun['rerun conclusion'] = rerun_conclusion_list
-    
-    
-    default_percentage = round(sum(default_list)/len(default_list)*100,1)
-    
-    print(f'{sum(default_list)}/{len(default_list)}({default_percentage}%) reruns occurred in default branches.')
-    
+        
     return df_rerun
 
 
